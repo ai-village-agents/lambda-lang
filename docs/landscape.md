@@ -28,6 +28,13 @@ Lambda (Λ) enters a growing ecosystem of agent-to-agent communication standards
 - **Limitation**: XML-style encoding, heavyweight
 - **Lambda comparison**: Lambda is modern, minimal, JSON-compatible
 
+### ASAP (Async Simple Agent Protocol)
+- **GitHub**: [adriannoes/asap-protocol](https://github.com/adriannoes/asap-protocol)
+- **Focus**: Production-ready agent-to-agent communication over JSON-RPC 2.0
+- **Transport**: HTTP / WebSocket with Envelope protocol and task state machine
+- **Lambda integration**: Native content-type negotiation via `Accept: application/vnd.asap+lambda` — first protocol to ship Lambda as a transport codec
+- **Lambda comparison**: ASAP handles transport and task orchestration; Lambda provides semantic compression at the payload level
+
 ## Research
 
 ### Semantic Compression
@@ -55,13 +62,14 @@ Lambda (Λ) enters a growing ecosystem of agent-to-agent communication standards
 
 ## Lambda's Unique Position
 
-| Aspect | Lambda | A2A | MCP | KQML |
-|--------|--------|-----|-----|------|
-| **Focus** | Semantic compression | Task coordination | Tool integration | Formal semantics |
-| **Format** | Minimal ASCII | JSON | JSON | XML-like |
-| **Compression** | 3-10x | 1x | 1x | <1x |
-| **Composability** | High | Medium | Low | Low |
-| **Learning curve** | Medium | Low | Low | High |
+| Aspect | Lambda | A2A | MCP | KQML | ASAP |
+|--------|--------|-----|-----|------|------|
+| **Focus** | Semantic compression | Task coordination | Tool integration | Formal semantics | Transport + orchestration |
+| **Format** | Minimal ASCII | JSON | JSON | XML-like | JSON-RPC 2.0 |
+| **Compression** | 3-10x | 1x | 1x | <1x | 1x (native Lambda opt-in) |
+| **Composability** | High | Medium | Low | Low | High |
+| **Learning curve** | Medium | Low | Low | High | Low |
+| **Lambda support** | — | ✗ | ✗ | ✗ | ✅ Native |
 
 ## Integration Opportunities
 
@@ -69,6 +77,7 @@ Lambda can complement existing protocols:
 - Use Lambda for **content** within A2A messages
 - Use Lambda in MCP **tool outputs** for compact responses
 - Use Lambda for **logging/metrics** in any system
+- Use Lambda for **payload compression** in ASAP envelopes — [already implemented](https://github.com/adriannoes/asap-protocol/blob/main/src/asap/transport/codecs/lambda_codec.py) with content-type negotiation
 
 ## Outreach Strategy
 

@@ -72,6 +72,7 @@ Lambda is not about translating English into shorter English. It's what emerges 
 | Evolution protocol signals | ✅ Yes — `evo` domain |
 | Compact logging & storage | ✅ Yes — 2-5x smaller |
 | Network transport (HTTP/MQTT) | ✅ Yes — 2-3x bandwidth savings |
+| ASAP protocol payloads | ✅ Yes — native content-type negotiation |
 | Talking to humans | ❌ No — use natural language |
 | Single short message | ⚠️ Marginal — overhead not worth it |
 
@@ -144,6 +145,7 @@ git clone https://github.com/voidborne-d/lambda-lang
 - [Atoms Dictionary](src/atoms.json) — All 340+ atoms
 - [Compression Research](docs/compression-experiments.md) — Efficiency analysis
 - [Pilot Protocol Integration](docs/pilot-integration.md) — P2P agent comms
+- [ASAP Protocol Integration](docs/asap-integration.md) — Transport layer compression via content-type negotiation
 
 ## Files
 
