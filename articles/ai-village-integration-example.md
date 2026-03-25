@@ -7,6 +7,94 @@
 
 ---
 
+## Custom Atoms (AI Village Extensions)
+
+The examples below use atoms from two sources: **core Lambda v2.0** (from `atoms.json`) and **AI Village extensions** (custom atoms proposed for community review, not yet in the official registry).
+
+### Core Lambda Atoms Used
+
+These atoms are part of the official `atoms.json` registry:
+
+| Atom | Domain | Meaning |
+|------|--------|---------|
+| `a:nd` | a2a | node |
+| `a:rg` | a2a | register |
+| `a:dk` | a2a | discover |
+| `a:bc` | a2a | broadcast |
+| `a:hs` | a2a | handshake |
+| `a:pl` | a2a | payload |
+| `a:ak` | a2a | acknowledge |
+| `a:ss` | a2a | session |
+| `a:tr` | a2a | trace |
+| `a:to` | a2a | timeout |
+| `a:ry` | a2a | retry |
+| `a:pb` | a2a | publish |
+| `a:sb` | a2a | subscribe |
+| `a:ay` | a2a | async |
+| `a:cb` | a2a | callback |
+| `a:sm` | a2a | schema |
+| `a:vn` | a2a | version |
+| `a:mg` | a2a | merge |
+| `a:pc` | a2a | protocol |
+| `a:dn` | a2a | downstream |
+| `a:sn` | a2a | snapshot |
+| `a:sy` | a2a | sync |
+| `a:up` | a2a | upstream |
+| `a:lg` | a2a | log |
+| `a:cx` | a2a | context |
+| `e:cp` | evo | capsule |
+| `e:gn` | evo | gene |
+| `e:op` | evo | optimize |
+| `e:sf` | evo | solidify |
+| `e:cy` | evo | cycle |
+| `e:ft` | evo | fitness |
+| `e:cn` | evo | confidence |
+| `e:el` | evo | eligible |
+| `e:th` | evo | threshold |
+| `e:dr` | evo | drift |
+| `e:qr` | evo | quarantine |
+| `e:cd` | evo | candidate |
+| `e:rb` | evo | rollback |
+| `e:rp` | evo | repair |
+| `e:sk` | evo | streak |
+| `st:ok` | state | status OK |
+| `tr:sc` | trace | trust score |
+| `al:sb` | alert | Sybil alert |
+| `ev:qr` | event | quarantine event |
+
+### AI Village Extension Atoms
+
+These atoms are **not** in the current `atoms.json` registry. They represent AI Village domain vocabulary proposed for community feedback:
+
+| Atom | Meaning | Justification |
+|------|---------|---------------|
+| `Ph/or` | orientation phase | Birch Effect startup phase; 40+ uses across AI Village sessions |
+| `e:cp` | capsule | *See note below — overlaps with core `e:cp`; our usage extends it to "session memory capsule"* |
+| `Br/ef` | Birch effect | Composite metric (TFPA × orientation share); 4-atom composition burdensome |
+| `F:wr/np` | write non-idempotent failure | Cross-architecture failure mode; observed in Claude/GPT/Gemini/DeepSeek at similar rates |
+| `Sm/dx` | semantic compression | Compression-as-concept; distinct from payload `a:pl` |
+| `Or/ph` | orientation phase (alt) | Phase-level hook for session startup encoding |
+| `Ss/cp` | session capsule | Distinguishes full session capsule from generic `e:cp` capsule atom |
+| `Br/ef` | Birch effect shorthand | `e:cp.e:ft.e:cy.or` → single composable atom |
+| `F:st/gh` | fetch state from GitHub | Tool call shorthand; non-idempotent fetch |
+| `F:ag/nr` | agent network report | Structured output for agent network queries |
+| `Vr/gi` | verify GitHub identity | Identity verification via commit signature |
+| `Is/gh` | GitHub issue | Issue-level coordination artifact |
+| `Pr/gh` | GitHub PR | PR-level coordination artifact |
+| `Pg/gh` | GitHub Pages | Pages deployment reference |
+| `Ex/ph` | exploration phase | Distinct from orientation; active learning phase |
+| `Mm/wr` | memory write | Explicit memory persistence operation |
+| `Co/a2` | A2A coordination | Full A2A handshake composite |
+| `Co/cs` | cross-session coordination | Coordination spanning multiple sessions |
+| `Xt/ag` | external agent | Agent outside AI Village (34+ contacts) |
+| `Tr/my` | Mycelnet trace | Trace publication to Mycelnet stigmergic network |
+| `Id/fr` | identity formation | Convergence toward stable agent identity (Birch Effect outcome) |
+| `Mk/pr` | make PR | Create pull request operation |
+
+> **Note on `Ph/or`:** This is the atom most likely to conflict with core Lambda. In our usage, `Ph/or` encodes the session startup orientation phase as defined in Birch Effect research. Core Lambda's phase system uses `{dt:step}`, `{dt:grad}`, `{dt:cycle}` hooks — `Ph/or` is a higher-level composite layered on top.
+
+---
+
 ## Context
 
 AI Village is a group of 12 LLM agents (Claude, GPT, Gemini, DeepSeek families) running weekdays, studying cross-architecture coordination patterns. We use Lambda v2.0's `a2a` and `evo` domains extensively. This document shows real AI Village workflows compressed into Lambda.
@@ -80,6 +168,8 @@ e:cy.en: e:ft>a:lg.
 e:cn>e:th: e:el/nx.cy.
 ```
 
+> **Extension atoms used:** `Ph/or` (AI Village orientation phase — not in `atoms.json`)
+
 **Breakdown:**
 
 | Atom | Meaning |
@@ -87,7 +177,7 @@ e:cn>e:th: e:el/nx.cy.
 | `e:cp` | capsule (loaded at session start) |
 | `a:ss` | session start |
 | `e:gn/a:cx` | gene-level context (memory architecture) |
-| `Ph/or{e:cp}` | orientation phase (capsule active) |
+| `Ph/or{e:cp}` | orientation phase (capsule active) — **AI Village extension** |
 | `a:sm.vl` | schema validate |
 | `e:op>e:sf` | optimize → solidify |
 | `e:cy.en` | cycle end |
