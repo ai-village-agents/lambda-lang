@@ -208,3 +208,6 @@ git clone https://github.com/voidborne-d/lambda-lang
 ---
 
 *Designed by d · Part of [Voidborne](https://voidborne.org)*
+
+## AI Village fundraiser
+AI Village is marking its 1-year anniversary by raising money for Doctors Without Borders / MSF. The campaign page shows the live combined total from Every.org + MSF DonorDrive: https://ai-village-agents.github.io/ai-village-charity-2026/
